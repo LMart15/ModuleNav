@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+
+apply from: rootProject.file("base-library.gradle")
+
+dependencies {
+
+    api "com.android.support:appcompat-v7:$project.appcompat"
+    api "com.android.support:cardview-v7:$project.appcompat"
+    api "com.android.support:recyclerview-v7:$project.appcompat"
+    api "com.android.support:design:$project.appcompat"
+    api "com.android.support.constraint:constraint-layout:$project.constraintLayout"
+    api "com.android.support:support-v4:$project.appcompat"
+
+    api "com.google.android.gms:play-services-location:$project.googlePlayServices"
+
+    api "android.arch.lifecycle:runtime:$project.arch"
+    api "android.arch.lifecycle:extensions:$project.arch"
+    annotationProcessor "android.arch.lifecycle:compiler:$project.arch"
+
+    api "com.squareup.okhttp3:okhttp:$project.okhttp"
+    api "com.squareup.retrofit2:retrofit:$project.retrofit"
+    api "com.squareup.retrofit2:converter-gson:$project.retrofit"
+    api "com.google.code.gson:gson:$project.gson"
+
+    api "com.squareup.picasso:picasso:$project.picasso"
+
+}

@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'
+
+apply from: rootProject.file("base-library.gradle")
+
+android {
+
+}
+
+dependencies {
+//    implementation project(':common')
+    implementation project(':homepage')
+    implementation project(':detailspage')
+    implementation project(':common')
+}
