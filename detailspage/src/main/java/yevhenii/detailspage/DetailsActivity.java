@@ -1,12 +1,14 @@
 package yevhenii.detailspage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
+import zhenya.common.ContinentModel;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -21,14 +23,14 @@ public class DetailsActivity extends AppCompatActivity {
         ivPicture = findViewById(R.id.ivPicture);
         tvTitle = findViewById(R.id.tvTitle);
         tvDescription = findViewById(R.id.tvDescription);
-        tvTitle.setText(getIntent().getStringExtra("tvTitle"));
-        tvDescription.setText(getIntent().getStringExtra("tvDescription"));
-//        ivPicture.setImageBitmap(getIntent().getParcelableExtra("ivPicture"));
-        if(getIntent().hasExtra("ivPicture")) {
-            Bitmap b = BitmapFactory.decodeByteArray(
-                    getIntent().getByteArrayExtra("ivPicture"),0,getIntent()
-                            .getByteArrayExtra("ivPicture").length);
-            ivPicture.setImageBitmap(b);
-        }
+
+        ContinentModel item = getIntent().getExtras().getParcelable("Item");
+
+
+        tvTitle.setText(item.getTitle());
+        tvDescription.setText(item.getDescription());
+        Picasso.with(this)
+                .load(item.getImage())
+                .into(ivPicture);
     }
 }

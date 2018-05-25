@@ -2,15 +2,15 @@ package zhenya.secondapp;
 
 
 import yevhenii.navigation_module.NavigationUtils;
-import zhenya.common.DependencyProvider;
-import zhenya.common.SomeNavigation;
+import zhenya.common.INavigationProvider;
+import zhenya.common.ISomeNavigation;
 
-public class Application extends android.app.Application implements DependencyProvider {
+public class Application extends android.app.Application implements INavigationProvider {
 
-    private SomeNavigation navigator = new NavigationUtils();
+    private ISomeNavigation navigator = new NavigationUtils();
 
     @Override
-    public SomeNavigation getNavigator() {
+    public ISomeNavigation getNavigator() {
         return navigator;
     }
 }

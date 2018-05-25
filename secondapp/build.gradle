@@ -33,8 +33,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':common')
-    implementation project(':homepage')
-    implementation project(':detailspage')
     implementation project(':navigation_module')
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
