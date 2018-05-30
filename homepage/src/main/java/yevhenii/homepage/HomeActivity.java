@@ -1,6 +1,5 @@
-package yevhenii.homepage.view.ui;
+package yevhenii.homepage;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,12 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import java.util.Arrays;
 import java.util.List;
 
-import yevhenii.homepage.view.adapter.HomeAdapter;
-import yevhenii.homepage.view.adapter.HomeViewHolder;
+import javax.inject.Inject;
+
+import yevhenii.homepage.di.DaggerHomeScreenComponent;
 import yevhenii.hopepage.R;
 import zhenya.common.ContinentModel;
-import zhenya.common.INavigationProvider;
-import zhenya.common.mock_data.StaticData;
+import zhenya.common.StaticData;
+import zhenya.common.navigation.App;
+import zhenya.common.navigation.IShowDetailScreen;
 
 public class HomeActivity extends AppCompatActivity implements HomeViewHolder.OnItemClickListener {
 
@@ -31,6 +32,9 @@ public class HomeActivity extends AppCompatActivity implements HomeViewHolder.On
 
     private HomeAdapter adapter;
 
+    @Inject
+    IShowDetailScreen showDetailScreenAction;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,12 @@ public class HomeActivity extends AppCompatActivity implements HomeViewHolder.On
         RecyclerView recyclerView = findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(adapter);
+
+        DaggerHomeScreenComponent.builder()
+                .applicationProvider(((App) getApplication()).getAppComponent())
+                .build()
+                .inject(this);
+
     }
 
 
@@ -47,9 +57,9 @@ public class HomeActivity extends AppCompatActivity implements HomeViewHolder.On
     public void onItemClick(int position) {
         ContinentModel item = adapter.getItem(position);
 
-        Intent intent = ((INavigationProvider) getApplication()).getNavigator().getDetailsIntent(this);
-        intent.putExtra("Item", item);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("Item", item);
 
-        startActivity(intent);
+        showDetailScreenAction.show(this, bundle);
     }
 }

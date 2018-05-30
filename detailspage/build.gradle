@@ -4,4 +4,7 @@ apply from: rootProject.file("base-library.gradle")
 
 dependencies {
     implementation project(':common')
+
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
 }

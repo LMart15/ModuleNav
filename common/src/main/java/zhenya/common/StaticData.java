@@ -1,4 +1,4 @@
-package zhenya.common.mock_data;
+package zhenya.common;
 
 import java.util.Arrays;
 import java.util.List;

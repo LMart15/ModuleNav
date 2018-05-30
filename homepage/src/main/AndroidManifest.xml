@@ -1,8 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="yevhenii.hopepage" >
+    package="yevhenii.hopepage">
 
     <application>
-        <activity android:name="yevhenii.homepage.view.ui.HomeActivity">
+        <activity android:name="yevhenii.homepage.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>
