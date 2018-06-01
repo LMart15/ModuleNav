@@ -2,16 +2,15 @@ package zhenya.multimodulenavigation;
 
 import android.app.Application;
 
-import yevhenii.navigation_module.NavigationUtils;
-import zhenya.common.INavigationProvider;
-import zhenya.common.ISomeNavigation;
+import zhenya.common.navigation.INavigation;
+import zhenya.common.navigation.INavigationProvider;
 
-public class CtrApp extends Application implements INavigationProvider {
+public class CtrApp extends Application implements INavigation {
 
-    private ISomeNavigation navigator = new NavigationUtils();
+    private INavigationProvider navigator = new NavigationProviderImpl();
 
     @Override
-    public ISomeNavigation getNavigator() {
+    public INavigationProvider getNavigationProvider() {
         return navigator;
     }
 }

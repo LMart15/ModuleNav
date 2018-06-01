@@ -11,8 +11,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/detailspage" />
+            <option value="$PROJECT_DIR$/gridhomepage" />
             <option value="$PROJECT_DIR$/homepage" />
-            <option value="$PROJECT_DIR$/navigation_module" />
             <option value="$PROJECT_DIR$/secondapp" />
           </set>
         </option>

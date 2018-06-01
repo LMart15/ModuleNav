@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import zhenya.common.INavigationProvider;
+import zhenya.common.navigation.INavigation;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent homeIntent = ((INavigationProvider)getApplication()).getNavigator().getHomeIntent(this);
-        startActivity(homeIntent);
+        Intent intent = ((INavigation)getApplication()).getNavigationProvider().getHomeScreenIntent(this);
+        startActivity(intent);
     }
 }

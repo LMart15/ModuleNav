@@ -1,1 +1,1 @@
-include ':app', ':common', ':secondapp', ':homepage', ':detailspage', ':detailspage', ':navigation_module'
+include ':app', ':common', ':secondapp', ':homepage', ':detailspage', ':detailspage', ':gridhomepage'

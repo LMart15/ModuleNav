@@ -14,8 +14,8 @@ import yevhenii.homepage.view.adapter.HomeAdapter;
 import yevhenii.homepage.view.adapter.HomeViewHolder;
 import yevhenii.hopepage.R;
 import zhenya.common.ContinentModel;
-import zhenya.common.INavigationProvider;
 import zhenya.common.mock_data.StaticData;
+import zhenya.common.navigation.INavigation;
 
 public class HomeActivity extends AppCompatActivity implements HomeViewHolder.OnItemClickListener {
 
@@ -47,9 +47,8 @@ public class HomeActivity extends AppCompatActivity implements HomeViewHolder.On
     public void onItemClick(int position) {
         ContinentModel item = adapter.getItem(position);
 
-        Intent intent = ((INavigationProvider) getApplication()).getNavigator().getDetailsIntent(this);
+        Intent intent = ((INavigation)getApplication()).getNavigationProvider().getDetailsScreenIntent(this);
         intent.putExtra("Item", item);
-
         startActivity(intent);
     }
 }
