@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.olden.gridhomepage" >
+
+    <application>
+        <activity android:name="com.olden.gridhomepage.ui.GridHomeActivity">
+        </activity>
+    </application>
+</manifest>
